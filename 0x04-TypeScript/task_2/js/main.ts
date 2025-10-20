@@ -61,6 +61,23 @@ function executeWork(employee: Director | Teacher): string {
   } else {
     return employee.workTeacherTasks();
   }
+
+  // ✅ Task 7: String literal types
+export type Subjects = "Math" | "History";
+
+export function teachClass(todayClass: Subjects): string {
+  if (todayClass === "Math") {
+    return "Teaching Math";
+  } else if (todayClass === "History") {
+    return "Teaching History";
+  }
+  return "";
+}
+
+// Example test output (optional)
+console.log(teachClass("Math"));
+console.log(teachClass("History"));
+
 }
 
 // Example output for testing
