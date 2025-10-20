@@ -8,30 +8,10 @@ interface Teacher {
   [key: string]: any;
 }
 
-const teacher3: Teacher = {
-  firstName: 'John',
-  fullTimeEmployee: false,
-  lastName: 'Doe',
-  location: 'London',
-  contract: false,
-};
-
-console.log(teacher3);
-
-// Task 2: Director interface extending Teacher
+// Task 2: Directors interface extends Teacher
 interface Directors extends Teacher {
   numberOfReports: number;
 }
-
-const director1: Directors = {
-  firstName: 'John',
-  lastName: 'Doe',
-  location: 'London',
-  fullTimeEmployee: true,
-  numberOfReports: 17,
-};
-
-console.log(director1);
 
 // Task 3: printTeacher function and interface
 interface printTeacherFunction {
@@ -42,15 +22,30 @@ function printTeacher(firstName: string, lastName: string): string {
   return `${firstName.charAt(0)}. ${lastName}`;
 }
 
-console.log(printTeacher("John", "Doe"));
-
-// Task 4: StudentClass implementation
-
-// Interface for the class
+// Task 4: StudentClass class definition
 interface StudentClassInterface {
   workOnHomework(): string;
   displayName(): string;
 }
 
-// Interface for the constructor
-interface StudentConstruct
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
+}
+
+class StudentClass implements StudentClassInterface {
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
