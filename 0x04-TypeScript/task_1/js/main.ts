@@ -8,7 +8,6 @@ interface Teacher {
   [key: string]: any;
 }
 
-// Example for Teacher
 const teacher3: Teacher = {
   firstName: 'John',
   fullTimeEmployee: false,
@@ -24,7 +23,6 @@ interface Director extends Teacher {
   numberOfReports: number;
 }
 
-// Example for Director
 const director1: Director = {
   firstName: 'John',
   lastName: 'Doe',
@@ -34,3 +32,14 @@ const director1: Director = {
 };
 
 console.log(director1);
+
+// Task 3: Printing teachers
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+function printTeacher(firstName: string, lastName: string): string {
+  return `${firstName.charAt(0)}. ${lastName}`;
+}
+
+console.log(printTeacher("John", "Doe"));
