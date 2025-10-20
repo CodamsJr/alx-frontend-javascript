@@ -19,11 +19,11 @@ const teacher3: Teacher = {
 console.log(teacher3);
 
 // Task 2: Director interface extending Teacher
-interface Director extends Teacher {
+interface Directors extends Teacher {
   numberOfReports: number;
 }
 
-const director1: Director = {
+const director1: Directors = {
   firstName: 'John',
   lastName: 'Doe',
   location: 'London',
@@ -33,43 +33,24 @@ const director1: Director = {
 
 console.log(director1);
 
-// Task 3: Printing teachers
+// Task 3: printTeacher function and interface
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
-  return `${firstName}. ${lastName}`;
+function printTeacher(firstName: string, lastName: string): string {
+  return `${firstName.charAt(0)}. ${lastName}`;
 }
 
-console.log(printTeacher({ firstName: "John", lastName: "Doe" }));
+console.log(printTeacher("John", "Doe"));
 
-// Task 4: Writing a class
+// Task 4: StudentClass implementation
 
-// Interface describing the constructor
-interface StudentConstructor {
-  new (firstName: string, lastName: string): StudentClassInterface;
-}
-
-// Interface describing the class
+// Interface for the class
 interface StudentClassInterface {
   workOnHomework(): string;
   displayName(): string;
 }
 
-// Class implementation
-class StudentClass implements StudentClassInterface {
-  constructor(public firstName: string, public lastName: string) {}
-
-  workOnHomework(): string {
-    return "Currently working";
-  }
-
-  displayName(): string {
-    return this.firstName;
-  }
-}
-
-const student = new StudentClass("John", "Doe");
-console.log(student.displayName());
-console.log(student.workOnHomework());
+// Interface for the constructor
+interface StudentConstruct
